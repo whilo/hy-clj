@@ -36,11 +36,14 @@ macro for now:
 (require '[hy-clj.core])
 
 (-> (hy (import numpy)
-          (import json)
-          (.mean numpy [[1 2 3]
-                        [4 5 6]]
-                 :axis 0))
-      read-string) ;; edn/transit would be a reasonable default between Clojury lisps
+        (import json)
+        (.mean numpy [[1 2 3]
+                      [4 5 6]]
+               :axis 0))
+
+   ;; edn/transit would be a reasonable default between Clojury lisps
+   ;; JSON could be a reasonable baseline as it has fast parsers on most runtimes
+   read-string) ;; => [2.5 3.5 4.5]
 ~~~
 
 ## TODO
